@@ -2,10 +2,10 @@ package com.javaweb.model;
 
 public class BuildingDTO {
 	private String name;
-	private Integer numberOfBasement;
+	private Long numberOfBasement;
 	private String address;
-	private Integer floorArea;
-	private Integer rentPrice;
+	private Long floorArea;
+	private Long rentPrice;
 	private String managerName;
 	private String managerPhoneNumber;
 	private String serviceFee;
@@ -17,10 +17,10 @@ public class BuildingDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getNumberOfBasement() {
+	public Long getNumberOfBasement() {
 		return numberOfBasement;
 	}
-	public void setNumberOfBasement(Integer numberOfBasement) {
+	public void setNumberOfBasement(Long numberOfBasement) {
 		this.numberOfBasement = numberOfBasement;
 	}
 	public String getAddress() {
@@ -29,16 +29,16 @@ public class BuildingDTO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public Integer getFloorArea() {
+	public Long getFloorArea() {
 		return floorArea;
 	}
-	public void setFloorArea(Integer floorArea) {
+	public void setFloorArea(Long floorArea) {
 		this.floorArea = floorArea;
 	}
-	public Integer getRentPrice() {
+	public Long getRentPrice() {
 		return rentPrice;
 	}
-	public void setRentPrice(Integer rentPrice) {
+	public void setRentPrice(Long rentPrice) {
 		this.rentPrice = rentPrice;
 	}
 	public String getManagerName() {

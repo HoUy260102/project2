@@ -1,13 +1,47 @@
 package com.javaweb.repository.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "district")
 public class DistrictEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	@Column(name = "code")
+	public String code;
+	@Column(name = "name")
 	private String name;
-	private Integer id;
-	public Integer getId() {
+	@OneToMany(mappedBy = "district", fetch = FetchType.LAZY)
+	List<BuildingEntity> items = new ArrayList<>();
+	
+	public List<BuildingEntity> getItems() {
+		return items;
+	}
+	public void setItems(List<BuildingEntity> items) {
+		this.items = items;
+	}
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 	public String getName() {
 		return name;
@@ -15,17 +49,6 @@ public class DistrictEntity {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	public DistrictEntity(Integer id, String name) {
-		super();
-		this.name = name;
-		this.id = id;
-	}
-
-	@Override
-	public String toString() {
-		return "DistrictEntity [name=" + name + ", id=" + id + "]";
 	}
 	
 }

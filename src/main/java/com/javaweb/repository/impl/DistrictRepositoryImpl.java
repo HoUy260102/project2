@@ -16,7 +16,7 @@ import com.javaweb.repository.entity.BuildingEntity;
 @Repository
 public class DistrictRepositoryImpl implements DistrictRepository{
 	@Override
-	public String getNameById(Integer id) {
+	public String getNameById(Long id) {
 		String sql = "select name from district where id = "+id;
 		String result = null;
 		try(Connection conn = ConnectionJDBCUtil.getConnection();

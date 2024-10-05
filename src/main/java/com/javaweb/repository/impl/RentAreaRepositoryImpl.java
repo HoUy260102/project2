@@ -16,7 +16,7 @@ import com.javaweb.repository.entity.RentAreaEntity;
 @Repository
 public class RentAreaRepositoryImpl implements RentAreaRepository{
 	@Override
-	public List<RentAreaEntity> getValueById(Integer id) {
+	public List<RentAreaEntity> getValueById(Long id) {
 		String sql = "select value from rentarea where buildingid = "+id;
 		List<RentAreaEntity> listRentArea = new ArrayList<RentAreaEntity>();
 		try(Connection conn = ConnectionJDBCUtil.getConnection();
@@ -24,7 +24,7 @@ public class RentAreaRepositoryImpl implements RentAreaRepository{
 			ResultSet rs = stmt.executeQuery(sql);
 				) {
 			while (rs.next()) {
-				RentAreaEntity rentArea = new RentAreaEntity(rs.getInt("value"));
+				RentAreaEntity rentArea = new RentAreaEntity(rs.getLong("value"));
 				listRentArea.add(rentArea);
 			}
 		} catch (SQLException e) {

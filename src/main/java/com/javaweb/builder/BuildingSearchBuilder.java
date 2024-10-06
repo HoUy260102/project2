@@ -75,7 +75,7 @@ public class BuildingSearchBuilder {
 	public Integer getRentPriceTo() {
 		return rentPriceTo;
 	}
-	public List<String> getRenType() {
+	public List<String> getRentType() {
 		return rentType;
 	}
 	public static class Builder {

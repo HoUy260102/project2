@@ -13,6 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 @Entity
 @Table(name = "building")
 public class BuildingEntity {
@@ -50,11 +53,13 @@ public class BuildingEntity {
 	@Column(name = "brokeragefee")
 	private Double brokerAgeFee;
 	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "districtid")
 	private DistrictEntity district;
 	
 	@OneToMany(mappedBy = "building", fetch = FetchType.LAZY)
+	@JsonManagedReference
 	List<RentAreaEntity> getRentAreas = new ArrayList<>();
 	public List<RentAreaEntity> getRentAreas() {
 		return getRentAreas;

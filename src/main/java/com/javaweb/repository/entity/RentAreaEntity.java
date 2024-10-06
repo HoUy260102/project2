@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 @Entity
 @Table(name = "rentarea")
 public class RentAreaEntity {
@@ -18,6 +20,7 @@ public class RentAreaEntity {
 	@Column(name = "value")
 	private Integer value;
 	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "buildingid")
 	private BuildingEntity building;

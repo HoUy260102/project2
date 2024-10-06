@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "district")
 public class DistrictEntity {
@@ -23,6 +25,7 @@ public class DistrictEntity {
 	@Column(name = "name")
 	private String name;
 	@OneToMany(mappedBy = "district", fetch = FetchType.LAZY)
+	@JsonManagedReference
 	List<BuildingEntity> items = new ArrayList<>();
 	
 	public List<BuildingEntity> getItems() {

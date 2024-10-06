@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javaweb.model.BuildingDTO;
+import com.javaweb.repository.BuildingRepository;
+import com.javaweb.repository.entity.BuildingEntity;
 import com.javaweb.service.BuildingService;
 
 @RestController
@@ -22,6 +24,8 @@ import com.javaweb.service.BuildingService;
 public class BuildingAPI {
 	@Autowired
 	private BuildingService buildingService;
+	@Autowired
+	private BuildingRepository buildingRepository;
 	@GetMapping(value="/api/building/")
 //	public List<BuildingDTO> getBuilding(@RequestParam(value = "name") String name){
 //		List<BuildingDTO> result = buildingService.findAll(name);
@@ -46,8 +50,9 @@ public class BuildingAPI {
 //	@Value("${dev.nguyen}")
 //	private String data;
 	@DeleteMapping(value = "/api/building/{id}")
-	public void delete(@PathVariable Integer id) {
-//		System.out.println(data);
+	public BuildingEntity delete(@PathVariable Long id) {
+//		BuildingEntity buildingEntities = buildingRepository.findById(id).get();
+		return null;
 	}
 	
 }
